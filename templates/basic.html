@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>DreamBot WEBUI</title>
+    <link rel="stylesheet" href="libs/MDUI/css/mdui.min.css" /> <!-- MDUI CSS -->
+    <link rel="stylesheet" href="css/DreamBotWEB.css"> <!-- DreamBot CSS -->
+    <link rel="stylesheet" href="css/animation.css"> <!-- animation -->
+    <script src="libs/SortableJS/Sortable.min.js"></script> <!-- SortableJS -->
+
+</head>
+
+
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-theme-accent-blue mdui-col-sm-12 DBot-page-body">
+    <div class="mdui-container mdui-appbar-with-toolbar">
+        <header class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-accent DBot-header-ui">
+                <a href="javascript:;" id="toggle" class="mdui-btn mdui-btn-icon"><i
+                        class="mdui-icon material-icons">menu</i></a>
+                <a href="javascript:;" class="mdui-typo-headline">DreamBot</a>
+                <a href="javascript:;" class="mdui-typo-title">WebUI</a>
+                <div class="mdui-toolbar-spacer"></div>
+            </div>
+        </header>
+        <div class="mdui-typo-display-1 mdui-m-l-5 mdui-m-b-2">欢迎 Dream</div>
+        <div class="mdui-divider"></div>
+        <div class="mdui-card mdui-m-r-1 mdui-m-l-1 mdui-m-b-2 mdui-m-t-2 mdui-hoverable">
+            <div class="mdui-card-header">
+                <i class="mdui-text-color-orange mdui-icon material-icons mdui-card-header-avatar"
+                    style="font-size: 40px;">assignment</i>
+                <div class="mdui-card-header-title">消息处理规则</div>
+                <div class="mdui-card-header-subtitle"></div>
+            </div>
+            <div class="mdui-card-content">
+                <div class="mdui-typo-subheading">总计: 10</div>
+                <div class="mdui-typo-subheading">已生效: 5</div>
+            </div>
+            <div class="mdui-card-actions">
+                <a class="mdui-btn mdui-ripple" href="messagerule.html">
+                    <i class="mdui-icon material-icons">
+                        keyboard_arrow_right
+                    </i>
+                    查看更多
+                </a>
+            </div>
+        </div>
+
+        <div class="mdui-card mdui-m-r-1 mdui-m-l-1 mdui-m-b-2 mdui-m-t-2 mdui-hoverable">
+            <!-- 卡片头部，包含头像 <div class="mdui-card-header-avatar"></div> 、标题、副标题 -->
+            <div class="mdui-card-header">
+                <i class="mdui-text-color-red mdui-icon material-icons mdui-card-header-avatar"
+                    style="font-size: 40px;">error</i>
+                <div class="mdui-card-header-title">错误信息</div>
+                <div class="mdui-card-header-subtitle">系统错误信息</div>
+            </div>
+            <!-- 卡片的内容 -->
+            <div class="mdui-card-content">
+                <div class="mdui-typo-subheading">暂无</div>
+
+            </div>
+            <!-- 卡片的按钮 -->
+            <div class="mdui-card-actions">
+                <a class="mdui-btn mdui-ripple" href="messagerule.html">
+                    <i class="mdui-icon material-icons">
+                        keyboard_arrow_right
+                    </i>
+                    查看更多
+                </a>
+            </div>
+        </div>
+    </div>
+
+<!--
+    ____                            ____        __ 
+   / __ \________  ____ _____ ___  / __ )____  / /_
+  / / / / ___/ _ \/ __ `/ __ `__ \/ __  / __ \/ __/
+ / /_/ / /  /  __/ /_/ / / / / / / /_/ / /_/ / /_  
+/_____/_/   \___/\__,_/_/ /_/ /_/_____/\____/\__/  
+                                                   
+
+
+-->
+
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/1.0.0/js/mdui.min.js"></script>
+    <script src="https://cdnjs.loli.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/dreambot.js"></script>
+</body>
+
+</html>

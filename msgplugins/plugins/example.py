@@ -16,7 +16,7 @@ class plugin:
         # 这里是处理逻辑 #
         # Code ....
         # 
-
+        
         # 发送部分 ...
         if self.send_type == "group":
             self.send.send_group_msg(group_id = self.sender["gid"],msg = "BlaBla")

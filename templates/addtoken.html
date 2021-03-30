@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='zh-cmn-Hans'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+    <meta name='renderer' content='webkit'>
+    <meta http-equiv='Cache-Control' content='no-siteapp' />
+    <title>DreamBot WEBUI</title>
+    <link rel='stylesheet' href='libs/MDUI/css/mdui.min.css' /> <!-- MDUI CSS -->
+    <link rel='stylesheet' href='css/DreamBotWEB.css'> <!-- DreamBot CSS -->
+    <link rel='stylesheet' href='css/animation.css'> <!-- animation -->
+    <script src='libs/SortableJS/Sortable.min.js'></script> <!-- SortableJS -->
+
+</head>
+
+
+
+<body class='mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-theme-accent-blue mdui-col-sm-12 DBot-page-body'>
+    <div class='mdui-container mdui-appbar-with-toolbar'>
+        <header class='mdui-appbar mdui-appbar-fixed'>
+            <div class='mdui-toolbar mdui-color-theme-accent DBot-header-ui'>
+                <a href='javascript:;' id='toggle' class='mdui-btn mdui-btn-icon'><i
+                        class='mdui-icon material-icons'>menu</i></a>
+                <a href='javascript:;' class='mdui-typo-headline'>DreamBot</a>
+                <a href='javascript:;' class='mdui-typo-title'>WebUI</a>
+                <div class='mdui-toolbar-spacer'></div>
+            </div>
+        </header>
+        <div class='mdui-typo-display-1 mdui-m-l-5 mdui-m-b-2 fade-in-left'>添加Token
+            <button class='mdui-btn mdui-ripple'>取消</button>
+            <button class='mdui-btn mdui-color-theme-accent mdui-ripple'>提交</button>
+        </div>
+        <div class='mdui-divider'></div>
+
+
+        <div class="fade-in-left">
+            <div class='mdui-text-center mdui-card-primary-title mdui-m-t-1 mdui-m-b-1'>基本信息</div>
+            <div class='mdui-container'>
+                <div class='mdui-textfield mdui-textfield-floating-label'>
+                    <label class='mdui-textfield-label'>名称</label>
+                    <input class='mdui-textfield-input' type='text' />
+                </div>
+
+                <div class="mdui-m-t-2 mdui-m-b-2">
+                    方式:
+                    <select class='mdui-select mdui-m-t-2' id='Proxy_server_select' mdui-select>
+                        <option>手动输入</option>
+                        <option>自动生成</option>
+                    </select>
+                </div>
+                <div class='mdui-textfield mdui-textfield-floating-label'>
+                    <label class='mdui-textfield-label'>自定义token(手动输入模式有效)</label>
+                    <input class='mdui-textfield-input' type='text' />
+                </div>
+
+                <div class='mdui-divider mdui-m-b-2 mdui-m-t-2'></div>
+            </div>
+        </div>
+        <div class='mdui-text-center mdui-card-primary-title mdui-m-t-1 fade-in-left mdui-m-b-1'>绑定API</div>
+        <div class='mdui-container fade-in-left'>
+            <ul class='mdui-list'>
+
+                <li class='mdui-list-item mdui-ripple'>
+                    <div class='mdui-list-item-content'>发送私聊消息</div>
+                    <label class='mdui-switch'>
+                        <input type='checkbox' id="CheckBox_BindAPI_send_private_msg" onchange="BindAPIChange()" />
+                        <i class='mdui-switch-icon'></i>
+                    </label>
+                </li>
+                <li class='mdui-list-item mdui-ripple'>
+                    <div class='mdui-list-item-content'>发送群消息</div>
+                    <label class='mdui-switch'>
+                        <input type='checkbox' id="CheckBox_BindAPI_send_group_msg" onchange="BindAPIChange()" />
+                        <i class='mdui-switch-icon'></i>
+                    </label>
+                </li>
+                <li class='mdui-list-item mdui-ripple'>
+                    <div class='mdui-list-item-content'>发送消息</div>
+                    <label class='mdui-switch'>
+                        <input type='checkbox' id="CheckBox_BindAPI_send_msg" onchange="BindAPIChange()" />
+                        <i class='mdui-switch-icon'></i>
+                    </label>
+                </li>
+                <li class='mdui-list-item mdui-ripple'>
+                    <div class='mdui-list-item-content'>撤回消息</div>
+                    <label class='mdui-switch'>
+                        <input type='checkbox' id="CheckBox_BindAPI_delete_msg" onchange="BindAPIChange()" />
+                        <i class='mdui-switch-icon'></i>
+                    </label>
+                </li>
+                <li class='mdui-list-item mdui-ripple'>
+                    <div class='mdui-list-item-content'>获取消息</div>
+                    <label class='mdui-switch'>
+                        <input type='checkbox' id="CheckBox_BindAPI_get_msg" onchange="BindAPIChange()" />
+                        <i class='mdui-switch-icon'></i>
+                    </label>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+    <div class='mdui-divider mdui-m-b-2 mdui-m-t-2'></div>
+
+
+
+
+    </div>
+    <script src='libs/MDUI/js/mdui.min.js'></script>
+    <script src='libs/JQuery/jquery.min.js'></script>
+    <script src='js/DreamBotWEB/addtoken.js'></script>
+</body>
+
+</html>

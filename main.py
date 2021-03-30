@@ -1,111 +1,66 @@
 #
 # DreamBot
 # #
-import colorlog
-import logging
 import flask
-import DreamBotcore
+import dreambotlib
 import json
-print("Loading .... \n DreamBot Project By Dreamily854")
-
-conffile = open("conf/config.json")
-conf = json.loads(conffile.read())
-conffile.close()
-conf_loglevel = {
-    "debug": logging.DEBUG,
-    "info": logging.INFO,
-    "warn": logging.WARNING,
-    "error": logging.ERROR,
-    "critical": logging.CRITICAL
-}
-colored = conf["log"]["colorful"]
-# LOG_LEVEL = conf_loglevel[conf["log"]["stream"]["level"]]
-# file_LOG_LEVEL = conf_loglevel[conf["log"]["file"]["level"]]
-logging.root.setLevel(conf_loglevel[conf["log"]["stream"]["level"]])
-if conf["log"]["logfile"]["enable"] == True:
-    file = logging.FileHandler(filename="log/main.log",
-                               encoding="utf-8",
-                               mode="a"
-                               )
-    file.setFormatter(logging.Formatter(
-        fmt="[%(asctime)s] [%(filename)s(line:%(lineno)d)/%(levelname)s]: %(message)s",
-        datefmt='%d %b %Y %H:%M:%S',
-    ))
-    file.setLevel(conf_loglevel[conf["log"]["file"]["level"]])
+import yaml
+import psutil
+import time
+import hmac
+import uuid
 
 
-if colored == True:
-    formatter = colorlog.ColoredFormatter("[%(time_log_color)s%(asctime)s%(reset)s] [%(filename_log_color)s%(filename)s%(reset)s/%(log_color)s%(levelname)s%(reset)s]: %(message_log_color)s%(message)s%(reset)s",
-                                          datefmt='%d %b %Y %H:%M:%S',
-                                          reset=True,
-                                          log_colors={
-                                              'DEBUG':    'cyan',
-                                              'INFO':     'green',
-                                              'WARNING':  'yellow',
-                                              'ERROR':    'red',
-                                              'CRITICAL': 'red,bg_white',
-                                          },
-                                          secondary_log_colors={
-                                              'message': {
-                                                  'ERROR':    'red',
-                                                  'CRITICAL': 'red'
-                                              },
-                                              'time': {
-                                                  'DEBUG':    'cyan',
-                                                  'INFO':     'cyan',
-                                                  'WARNING':  'cyan',
-                                                  'ERROR':    'yellow',
-                                                  'CRITICAL': 'yellow'
-                                              },
-                                              'filename': {
-                                                  'DEBUG':    'cyan',
-                                                  'INFO':     'cyan',
-                                                  'WARNING':  'yellow',
-                                                  'ERROR':    'yellow',
-                                                  'CRITICAL': 'red,bg_white'
-                                              }
-                                          },
-                                          style='%'
-                                          )
-else:
-    formatter = logging.Formatter("[%(asctime)s] [%(filename)s/%(levelname)s]: %(message)s",
-                                  datefmt='%d %b %Y %H:%M:%S')
-stream = logging.StreamHandler()
-stream.setLevel(conf_loglevel[conf["log"]["stream"]["level"]])
-stream.setFormatter(formatter)
+print(" Loading Module.... \n DreamBot Project By Dreamily854")
 
-log = logging.getLogger()
-log.setLevel(logging.DEBUG)
-log.addHandler(stream)
-if conf["log"]["logfile"]["enable"] == True:
-    log.addHandler(file)
+ConfFile = open("config/conf.yml", "r", encoding="UTF-8")
+MAIN_CONF = yaml.load(ConfFile.read(), Loader=yaml.FullLoader)
+ConfFile.close()
 
+log = dreambotlib.DbotMakeLog.MakeLog(MAIN_CONF["log"])
 
-# log.debug("Debug Log")
-# log.info("Info Log")
-# log.warning("Warning Log")
-# log.error("Error log")
-# log.critical("Critical LOG")
+#log.debug("Debug Log")
+#log.info("Info Log")
+#log.warning("Warning Log")
+#log.error("Error log")
+#log.critical("Critical LOG")
 
-
-Bot = DreamBotcore.DreamBot(
-    log=log,
-    send=conf["send"],
-    prefixs=conf["prefixs"],
-    plugins_permission=conf["plugins_permission"]
-)
 app = flask.Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 
-@app.route('/', methods=['POST'])
-def serv():
-    print(flask.request.get_json())
-    Bot.core(flask.request.get_json())
-    return ""
+#@app.route('/', methods=['POST'])
+#def receive():
+#    sig = hmac.new(b'<your-key>', flask.request.get_data(), 'sha1').hexdigest()
+#    received_sig = flask.request.headers['X-Signature'][len('sha1='):]
+#    if sig == received_sig:
+        # 请求确实来自于 OneBot
+#        pass
+#    else:
+#        # 假的上报
+#        pass
+
+
+
+#Bot = DreamBotcore.DreamBot(
+#    log=log,
+#    send=conf["send"],
+#    prefixs=conf["prefixs"],
+#    plugins_permission=conf["plugins_permission"]
+#)
+#app = flask.Flask(__name__)
+#app = flask.Flask(__name__)
+#app.config['JSON_AS_ASCII'] = False
+
+#@app.route('/', methods=['POST'])
+#def serv():
+#    print(flask.request.get_json())
+#    Bot.core(flask.request.get_json())
+#    return ""
 
 
 if __name__ == "__main__":
     log.info("Start Http Server")
-    app.run(host=conf["http"]["server"],
-            port=conf["http"]["port"],
+    app.run(host=MAIN_CONF["http"]["server"],
+            port=MAIN_CONF["http"]["port"],
             debug=True)
