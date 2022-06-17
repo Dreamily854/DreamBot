@@ -1,0 +1,16 @@
+# DreamBot Conf
+
+# database
+DB:
+  type:
+  filepath:
+  host:
+  port:
+  username:
+  password:
+  database:
+
+html:
+  host:
+  port:
+
